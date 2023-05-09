@@ -3,7 +3,12 @@
   <p>Hi, this is Vue Test</p>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "App",
+  components: {},
+};
+</script>
 
 <!-- <style>
 #app {
