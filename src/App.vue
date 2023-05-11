@@ -1,22 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <p>Hi, this is Vue Test</p>
+  <LayoutHeader />
+  <BookList />
 </template>
 
 <script>
+import LayoutHeader from "./components/LayoutHeader.vue";
+import BookList from "./components/BookList.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    LayoutHeader,
+    BookList,
+  },
 };
 </script>
 
-<!-- <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style> -->
+<style>
+@import url("./assets/global.css");
+</style>
