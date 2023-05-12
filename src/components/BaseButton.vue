@@ -1,11 +1,12 @@
 <template>
-  <button :class="`btn btn--${variant}`" @click="clickedBtn">
+  <button :class="`btn btn--${variant}`" @click="$emit('button-event')">
     {{ text }}
   </button>
 </template>
 
 <script>
 export default {
+  emits: ["button-event"],
   props: {
     text: { type: String },
     variant: {
@@ -16,12 +17,6 @@ export default {
       },
     },
   },
-  methods: {
-    clickedBtn() {
-      this.$emits("clickedBtn");
-    },
-  },
-  emits: ["clickedBtn"],
 };
 </script>
 

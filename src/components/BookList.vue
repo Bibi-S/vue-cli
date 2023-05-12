@@ -66,6 +66,15 @@ export default {
       ],
     };
   },
+  // methods: {
+  //   handleBookmarkClick(isbn) {
+  //     const currentBookIndex = this.books.findIndex(
+  //       (book) => book.isbn === isbn
+  //     );
+  //     const currentBook = this.books[currentBookIndex];
+  //     currentBook.isBookmarked = !currentBook.isBookmarked ? true : false;
+  //   },
+  // },
 };
 </script>
 

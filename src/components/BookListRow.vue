@@ -3,7 +3,11 @@
     <td>{{ title }}</td>
     <td>{{ isbn }}</td>
     <td>
-      <BaseButton text="changeBtnText" variant="primary" @clickedBtn="" />
+      <BaseButton
+        text=""
+        variant="primary"
+        @button-event="clickBookmarkButton"
+      />
     </td>
   </tr>
 </template>
@@ -18,16 +22,25 @@ export default {
   props: {
     title: { type: String },
     isbn: { type: String },
-    isBookmarked: { type: Boolean },
+  },
+  data() {
+    return {
+      isBookmarked: false,
+    };
   },
   methods: {
-    changeBtnText() {
-      return {
-     isBookmarked ? "Remove Bookmark" : "Add Bookmark";
-      },
+    // changeBtnText() {
+    //   {
+    //     this.isBookmarked ? "Remove Bookmark" : "Add Bookmark";
+    //   }
+    clickBookmarkButton() {
+      this.isBookmarked = !this.isBookmarked;
+      console.log(this.isBookmarked);
+      // this.$emit("bookmarkClicked", this.isbn);
     },
   },
 };
+// emits: ["butbookmarkClicked"],
 </script>
 
 <style>
