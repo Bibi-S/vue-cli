@@ -15,6 +15,7 @@
           :key="book.isbn"
           :title="book.title"
           :isbn="book.isbn"
+          @bookmark-button-click="onBookmarkButtonClick"
         />
       </tbody>
     </table>
@@ -38,6 +39,7 @@ export default {
           publisher: "Apress",
           price: "$28.75",
           numPages: 256,
+          isBookmarked: false,
         },
         {
           title: "Using WebPagetest",
@@ -46,7 +48,9 @@ export default {
           publisher: "O'Reilly Media",
           price: "$25.80",
           numPages: 214,
+          isBookmarked: false,
         },
+
         {
           title: "Web Scraping with Python",
           isbn: "9781491910290",
@@ -54,7 +58,9 @@ export default {
           publisher: "O'Reilly Media",
           price: "$14.00",
           numPages: 256,
+          isBookmarked: false,
         },
+
         {
           title: "High Performance Mobile Web",
           isbn: "9781491912553",
@@ -66,15 +72,15 @@ export default {
       ],
     };
   },
-  // methods: {
-  //   handleBookmarkClick(isbn) {
-  //     const currentBookIndex = this.books.findIndex(
-  //       (book) => book.isbn === isbn
-  //     );
-  //     const currentBook = this.books[currentBookIndex];
-  //     currentBook.isBookmarked = !currentBook.isBookmarked ? true : false;
-  //   },
-  // },
+  methods: {
+    onBookmarkButtonClick(isbn) {
+      const currentBookIndex = this.books.findIndex(
+        (book) => book.isbn === isbn
+      );
+      const currentBook = this.books[currentBookIndex];
+      currentBook.isBookmarked = !currentBook.isBookmarked ? true : false;
+    },
+  },
 };
 </script>
 

@@ -4,7 +4,7 @@
     <td>{{ isbn }}</td>
     <td>
       <BaseButton
-        text=""
+        :text="buttonText"
         variant="primary"
         @button-event="clickBookmarkButton"
       />
@@ -16,6 +16,7 @@
 import BaseButton from "./BaseButton.vue";
 
 export default {
+  emits: ["bookmark-button-click"],
   components: {
     BaseButton,
   },
@@ -29,18 +30,22 @@ export default {
     };
   },
   methods: {
-    // changeBtnText() {
-    //   {
-    //     this.isBookmarked ? "Remove Bookmark" : "Add Bookmark";
-    //   }
     clickBookmarkButton() {
       this.isBookmarked = !this.isBookmarked;
+      this.$emit("bookmark-button-click");
       console.log(this.isBookmarked);
-      // this.$emit("bookmarkClicked", this.isbn);
+    },
+  },
+  computed: {
+    buttonText() {
+      if (this.isBookmarked) {
+        return "Remove Bookmark";
+      } else {
+        return "Add Bookmark";
+      }
     },
   },
 };
-// emits: ["butbookmarkClicked"],
 </script>
 
 <style>
